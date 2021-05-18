@@ -1,10 +1,9 @@
 export default class Slider {
-    constructor(page, btnsNext, timeDeley) {
+    constructor(page, btnsNext) {
         this.page = document.querySelector(page);
         this.slides = this.page.children;
         this.btnsNext = document.querySelectorAll(btnsNext);
         this.slideIndex = 1;
-        this.timeDeley = timeDeley;
     }
 
     showSlides(n) {
@@ -16,7 +15,6 @@ export default class Slider {
 
         try {
             this.hanson.style.opacity = '0';
-
             if (n === 3) {
                 this.hanson.classList.add('animated');
                 setTimeout(() => {
@@ -29,34 +27,27 @@ export default class Slider {
         } catch (e) {
         }
 
-
         this.slides.forEach(slide => {
             slide.style.display = 'none';
         });
 
-
         this.slides[this.slideIndex - 1].style.display = 'block';
     }
 
-    plusSlides(n) {
+    updateSlides(n) {
         this.showSlides(this.slideIndex += n);
-    }
-
-    minusSlides(n) {
-        this.showSlides(this.slideIndex -= n);
     }
 
     render() {
         try {
             this.hanson = document.querySelector('.hanson');
-
         } catch (e) {
         }
 
         this.btnsNext.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.plusSlides(1);
+                this.updateSlides(1);
             });
 
             item.parentNode.previousElementSibling.addEventListener('click', (e) => {
