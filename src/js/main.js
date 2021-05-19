@@ -10,11 +10,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const showUpSlider = new MiniSlider({
         container: '.showup__content-slider',
         next: '.showup__next',
-        prev: '.showup__prev'
+        prev: '.showup__prev',
+        activeClass: 'card-active',
+        animate: true
     });
     showUpSlider.init();
 
-    const moduleSlider = new MiniSlider({
+/*    const moduleSlider = new MiniSlider({
         container: '.modules__content-slider',
         next: '.modules__info-btns .slick-next',
         prev: '.modules__info-btns .slick-prev'
@@ -26,5 +28,5 @@ window.addEventListener('DOMContentLoaded', () => {
         next: '.feed__slider .slick-next',
         prev: '.feed__slider .slick-prev'
     });
-    feedSlider.init();
+    feedSlider.init();*/
 });
