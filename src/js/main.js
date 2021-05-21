@@ -2,6 +2,7 @@ import MainSlider from "./module/slider/slider-main";
 import MiniSlider from "./module/slider/slider-mini";
 import VideoPlayer from "./module/playVideo";
 import Difference from "./module/difference";
+import Form from "./module/forms";
 
 window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({container: '.page', btns: '.next'});
@@ -41,4 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const officerNew = new Difference('.officernew', '.officer__card-item');
     officerNew.init();
+
+    const forms = new Form('form', 'input');
+    forms.init();
 });
