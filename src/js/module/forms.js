@@ -1,5 +1,5 @@
 import Requests from "../services/requests";
-
+import PopUpMessage from "./popUpMessage";
 export default class Form {
     constructor(form,input) {
         this.forms = document.querySelectorAll(form);
@@ -27,13 +27,16 @@ export default class Form {
                 const formData = new FormData(item);
                 let api = this.path.question;
                 let request = new Requests(api, formData);
+
                 request.postData()
                     .then(res => {
+                        let popUpMessage = new PopUpMessage('Спасибо за заполнение формы:)');
+                        popUpMessage.init();
                         console.log(res);
                     })
                     .catch(() => {
-                        console.log(message.fail);
-
+                        let popUpMessage = new PopUpMessage('При заполнении формы произошла ошибка','red');
+                        popUpMessage.init();
                     })
                     .finally(() => {
                         this.cleanInputs();
