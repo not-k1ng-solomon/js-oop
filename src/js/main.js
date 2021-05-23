@@ -3,6 +3,7 @@ import MiniSlider from "./module/slider/slider-mini";
 import VideoPlayer from "./module/playVideo";
 import Difference from "./module/difference";
 import Form from "./module/forms";
+import ValidationForm from "./module/validationForm";
 
 window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({container: '.page', btns: '.next'});
@@ -45,4 +46,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const forms = new Form('form', 'input');
     forms.init();
+
+    const emailValid = new ValidationForm('[name="email"]');
+    emailValid.noRussianLetter();
+
+    const phoneMask = new ValidationForm('[name="phone"]','+1 (___) ___-____');
+    phoneMask.initMask();
+
 });
