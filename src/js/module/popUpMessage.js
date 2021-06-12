@@ -1,5 +1,5 @@
 export default class PopUpMessage {
-    constructor(message, background = '#5B72C4', color = '#fff', vertical = 'bottom', horizon = 'left', display = 'block') {
+    constructor({message, background = '#5B72C4', color = '#fff', vertical = 'bottom', horizon = 'left', display = 'block'}) {
         this.message = message;
         this.vertical = vertical;
         this.horizon = horizon;
@@ -36,7 +36,6 @@ export default class PopUpMessage {
             padding: 20px;
             z-index: 100;
             border-radius: 5px;
-        
         `;
 
         if (this.vertical === 'top') {

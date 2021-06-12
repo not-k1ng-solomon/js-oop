@@ -8,8 +8,10 @@ import ValidationForm from "./module/validationForm";
 window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({container: '.page', btns: '.next'});
     slider.render();
+
     const play = new VideoPlayer('.showup .play', '.overlay');
     play.init();
+
     const showUpSlider = new MiniSlider({
         container: '.showup__content-slider',
         next: '.showup__next',
@@ -44,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const officerNew = new Difference('.officernew', '.officer__card-item');
     officerNew.init();
 
-    const forms = new Form('form', 'input');
+    const forms = new Form('form', 'assets/question.php');
     forms.init();
 
     const emailValid = new ValidationForm('[name="email"]');
