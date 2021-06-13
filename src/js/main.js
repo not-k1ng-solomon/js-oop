@@ -9,6 +9,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({container: '.page', btns: '.next'});
     slider.render();
 
+    const modulePageSlider = new MainSlider({container: '.moduleapp', btns: '.next', next: '.next', prev: '.prev'});
+    modulePageSlider.render();
+
     const play = new VideoPlayer('.showup .play', '.overlay');
     play.init();
 
@@ -52,7 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const emailValid = new ValidationForm('[name="email"]');
     emailValid.noRussianLetter();
 
-    const phoneMask = new ValidationForm('[name="phone"]','+1 (___) ___-____');
+    const phoneMask = new ValidationForm('[name="phone"]', '+1 (___) ___-____');
     phoneMask.initMask();
 
 });

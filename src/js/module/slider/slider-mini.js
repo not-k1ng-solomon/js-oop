@@ -49,22 +49,26 @@ export default class MiniSlider extends Slider {
     }
 
     bindTriggers() {
-        this.next.addEventListener('click', () => {
-            this.nextSlide()
+        this.next.forEach(item => {
+            item.addEventListener('click', () => {
+                this.nextSlide();
+            });
         });
-        this.prev.addEventListener('click', () => {
-            let swap = this.btnSwap(this.slides[this.slides.length - 1], 'prev');
-            if (swap === true) {
-                let active = this.slides[this.slides.length - 1];
-                this.container.insertBefore(active, this.slides[0]);
-                this.decorizeSlides();
-            }
-            // this.container.appendChild(this.slides[0]);
-        });
+        this.prev.forEach(item => {
+            item.addEventListener('click', () => {
+                let swap = this.btnSwap(this.slides[this.slides.length - 1], 'prev');
+                if (swap === true) {
+                    let active = this.slides[this.slides.length - 1];
+                    this.container.insertBefore(active, this.slides[0]);
+                    this.decorizeSlides();
+                }
+                // this.container.appendChild(this.slides[0]);
+            });
+        })
     }
 
     init() {
-        try{
+        try {
             this.container.style.cssText = `
             display: flex;
             flex-wrap: wrap;
@@ -79,6 +83,7 @@ export default class MiniSlider extends Slider {
                     this.nextSlide()
                 }, this.autoplay);
             }
-        }catch (e) {}
+        } catch (e) {
+        }
     }
 }

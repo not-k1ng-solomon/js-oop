@@ -37,27 +37,47 @@ export default class MainSlider extends Slider {
         this.showSlides(this.slideIndex += n);
     }
 
-    render() {
-        try {
-            try {
-                this.hanson = document.querySelector('.hanson');
-            } catch (e) {}
-
-            this.btns.forEach(item => {
+    // initButton{}
+    bindTriggers() {
+        this.btns.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.updateSlides(1);
+            });
+            item.parentNode.previousElementSibling.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.slideIndex = 1;
+                this.showSlides(this.slideIndex);
+            })
+        });
+        if (this.next) {
+            this.next.forEach(item =>{
                 item.addEventListener('click', (e) => {
+                    e.stopPropagation();
                     e.preventDefault();
                     this.updateSlides(1);
                 });
-
-                item.parentNode.previousElementSibling.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.slideIndex = 1;
-                    this.showSlides(this.slideIndex);
-                })
             });
+        }
+        if (this.prev) {
+            this.prev.forEach(item =>{
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    this.updateSlides(-1);
+                });
+            });
+        }
+    }
 
+    render() {
+        if (this.container) {
+            try {
+                this.hanson = document.querySelector('.hanson');
+            } catch (e) {
+            }
+            this.bindTriggers();
             this.showSlides(this.slideIndex);
-        } catch (e) {
         }
     }
 }
