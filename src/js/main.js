@@ -12,6 +12,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const modulePageSlider = new MainSlider({container: '.moduleapp', btns: '.next', next: '.next', prev: '.prev'});
     modulePageSlider.render();
 
+    const modulePlay = new VideoPlayer('.module__video-item .play', '.overlay');
+    modulePlay.init();
+
     const play = new VideoPlayer('.showup .play', '.overlay');
     play.init();
 
