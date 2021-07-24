@@ -4,6 +4,8 @@ import VideoPlayer from "./module/playVideo";
 import Difference from "./module/difference";
 import Form from "./module/forms";
 import ValidationForm from "./module/validationForm";
+import ShowInfo from "./module/showInfo";
+import Download from "./module/download";
 
 window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({container: '.page', btns: '.next'});
@@ -61,4 +63,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const phoneMask = new ValidationForm('[name="phone"]', '+1 (___) ___-____');
     phoneMask.initMask();
 
+    const showInfo = new ShowInfo({trigger: '.module__info-show .plus', message: '.module__info .msg'});
+    showInfo.init();
+
+    const download = new Download('.download');
+    download.init();
 });

@@ -9,7 +9,6 @@ export default class PopUpMessage {
     }
 
     showPopUp(element) {
-        console.log(12);
         document.body.appendChild(element);
         element.style.display = this.display;
         element.classList.add('animated', 'fadeInUp');
